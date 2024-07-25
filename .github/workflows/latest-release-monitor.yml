@@ -16,12 +16,14 @@ jobs:
     environment: main
     steps:
       - uses: azure/login@v2
-        with:
+        with: 
+            
           client-id: ${{ vars.AZURE_CLIENT_ID }}
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
-          allow-no-subscriptions: true
-      - name: Checkout Actions
-        uses: actions/checkout@v4
+          allow-no-subscriptions: false
+      - name: Azure Login
+        uses: Azure/login@v2.1.1
+            
         with:
           repository: "microsoft/vscode-github-triage-actions"
           path: ./actions
